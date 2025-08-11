@@ -6,7 +6,6 @@ if(!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit();
 }
-
 //Obtendo o nome do perfil do usuário logado
 $id_perfil = $_SESSION['perfil'];
 $sqlPerfil = "SELECT nome_perfil FROM perfil WHERE id_perfil = :id_perfil";
@@ -32,7 +31,63 @@ $permissoes = [
 
          "Alterar"=>["alterar_fornecedor.php","alterar_produto.php"],
 
-         "Excluir"=>["excluir_produto.php"],]]
+         "Excluir"=>["excluir_produto.php"]],
+         
+         3=> ["Cadastrar"=>["cadastro_produto.php","cadastro_fornecedor"],
 
-  
+         "Buscar"=>["buscar_cliente.php","buscar_fornecedor.php","buscar_produto.php"],
+
+         "Alterar"=>["alterar_perfil.php","alterar_produto.php","alterar_fornecedor.php"],
+
+         "Excluir"=>["excluir_produto.php"]],
+         
+         4=> ["Buscar"=>["buscar_produto.php"],
+
+         "Alterar"=>["alterar_perfil.php"]]];
+
+
+         ///Obtendo as opções disponíveis para o perfil logado
+         $opcoes_menu = $permissoes[$id_perfil];
 ?>
+
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel principal</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <header>
+        <div class="saudacao">
+            <h2>Bem-Vindo, <?php echo $_SESSION['usuario'];?>! | Perfil: <?php echo $nome_perfil; ?></h2>
+        </div>
+        <div class="logout">
+            <form action="logout.php" method="POST">
+                <button  type="submit">Logout</button>
+            </form>
+        </div>
+</header>
+<nav>
+    <ul class="menu">
+        <?php foreach($opcoes_menu as $categoria =>$arquivos) :?>
+            <li class="dropdown">
+                <a href="#"><?=$categoria ?></a>
+                <ul class="dropdown-menu">
+                    <?php foreach($arquivos as $arquivo) :?>
+                        <li>
+                           <a href="<?= $arquivo ?>"><?=ucfirst(str_replace("_"," ",basename($arquivo, ".php")))?></a>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
+            </li>
+        <?php endforeach; ?>
+    </ul>  
+</nav>
+<adress>
+        Raquel Fernandes / Estudante / raquel_f_brito@estudante.sesisenai.org.br
+ </adress>
+</body>
+</html>
