@@ -28,10 +28,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Simula o envio do email (Grava em txt)
         simularEnvioEmail($email, $senha_temporaria);
-        echo "<script>alert('Uma senha temporária foi gerada e enviada (simulação). Verifique o arquivo emails_simulados.txt'); window.location.href='login.php';</script>";
+        echo "<script>alert('Uma senha temporária foi gerada e enviada (simulação). Verifique o arquivo emails_simulados.txt'); window.location.href='index.php';</script>";
        
     } else {
-        echo "<script>alert('Email não encontrado!');window.location.href='login.php';</script>";
+        echo "<script>alert('Email não encontrado!');window.location.href='index.php';</script>";
     }
 }
 ?>
@@ -51,6 +51,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <button type="submit" >Enviar a senha temporária</button>
     </form>
-    
+    <adress>
+        Raquel Fernandes / Estudante / raquel_f_brito@estudante.sesisenai.org.br
+ </adress>
 </body>
+
 </html>
