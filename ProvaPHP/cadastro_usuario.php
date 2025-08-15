@@ -64,5 +64,9 @@ if ($stmt->execute()) {
         <button type="reset">Cancelar</button>
     </form>
     <a href="principal.php">Voltar</a>
+    <address>
+    <br><br><br><br>
+        Raquel Fernandes / Estudante / raquel_f_brito@estudante.sesisenai.org.br
+ </address>
 </body>
 </html>
