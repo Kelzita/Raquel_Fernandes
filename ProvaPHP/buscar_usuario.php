@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['busca'])) {
     } else {
         $sql = "SELECT *  FROM usuario WHERE nome LIKE :busca_nome ORDER BY nome ASC "; // Faz uma busca por ID, caso seja por nome.
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':busca_nome',"$busca%", PDO::PARAM_STR);
+        $stmt->bindValue(':busca_nome',"%$busca%", PDO::PARAM_STR);
     }
 } else {
     $sql = "SELECT *  FROM usuario ORDER BY nome ASC "; // Faz uma busca por ID, caso seja por nome.
@@ -41,7 +41,8 @@ $usuarios= $stmt->fetchALL(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Usuário</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tabela.css">
   
  </head>
  <body>
@@ -52,8 +53,9 @@ $usuarios= $stmt->fetchALL(PDO::FETCH_ASSOC);
         <button type="submit">Buscar</button>
     </form>
     <?php if(!empty($usuarios)) : ?>
-        <table align="center" border="1">
+        <table>
             <tr>
+              <th>ID</th>
               <th>Nome</th>
               <th>Email</th>
               <th>Perfil</th>
@@ -67,9 +69,9 @@ $usuarios= $stmt->fetchALL(PDO::FETCH_ASSOC);
               <td><?=htmlspecialchars($usuario['email']);?></td>
               <td><?=htmlspecialchars($usuario['id_perfil']);?></td>
               <td>
-                <a href="alterar_usuario.php?id=<?htmlspecialchars($usuario['id_usuario']);?>">Alterar</a>
-
-                <a href="excluir_usuario.php?id=<?htmlspecialchars($usuario['id_usuario']);?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
+                <a href="alterar_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario']);?>">Alterar</a>
+    
+                <a href="excluir_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario']);?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
               </td>
            </tr>
            <?php endforeach ?>
@@ -79,6 +81,10 @@ $usuarios= $stmt->fetchALL(PDO::FETCH_ASSOC);
     <?php endif; ?>
     <br>
     <a href="principal.php">Voltar</a>
+    <address>
+    <br><br><br><br>
+        Raquel Fernandes / Estudante / raquel_f_brito@estudante.sesisenai.org.br
+ </address>
         
  </body>
  </html>
