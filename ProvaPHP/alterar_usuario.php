@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
         } else {
             $sql = "SELECT * FROM usuario WHERE nome LIKE :busca_nome";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':busca_nome', '%$busca%', PDO::PARAM_STR);
+            $stmt->bindValue(':busca_nome',"%$busca%", PDO::PARAM_STR);
         }
         $stmt->execute();
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -44,42 +44,59 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar Usuário</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css">
     <!--Certifique-se de que o java script está sendo carregado corretamente-->
     <script src="scripts.js"></script>
 </head>
 <body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Usuário</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <!-- Certifique-se que o JavaScript está sendo carregado corretamente. -->
+</head>
+<body>
     <h2>Alterar Usuário</h2>
-    
-    <form action="alterar_usuario" method="POST">
-        <label for="busca_usuario">Digite o ID ou nome do Usuário:<label>
+    <form action="alterar_usuario.php" method="POST">
+        <label for="busca_usuario">Digite o ID ou o nome do usuário:</label>
         <input type="text" id="busca_usuario" name="busca_usuario" required onkeyup="buscarSugestoes()">
 
-    
-    <div id="sugestoes"></div>
-    <button type="submit">Buscar</button>
+         <div id="sugestoes"></div>
+         <button type="submit">Buscar</button>
     </form>
-    <?php if($usuario) : ?>
-        <!--Formulário para alterar usuário-->
-    <form action="processa_alteracao_usuario.php" method="GET">
-        <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario']);?>">
+    <?php if($usuario): ?>
+        <!-- Formulario para alterar o usuario -->
+        <form action="processa_alteracao_usuario.php" method="POST">
+            <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario'])?>">
 
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="<?=htmlspecialchars($usuario['nome']);?>"required>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="<?=htmlspecialchars($usuario['nome'])?>" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?=htmlspecialchars($usuario['email']);?>"required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?=htmlspecialchars($usuario['email']);?>" required>
 
-        <label for="id_perfil">Perfil:</label>
-        <select id="id_perfil" name="id_perfil">
-            <option value="1" <?=$usuario['id_perfil'] == ?'select':''?>>Administrador</option>
-            <option value="2" <?=$usuario['id_perfil'] == ?'select':''?>>Secretária</option>
-            <option value="3" <?=$usuario['id_perfil'] == ?'select':''?>>Almoxarife</option>
-            <option value="4" <?=$usuario['id_perfil'] == ?'select':''?>>Cliente</option>
-        </select>
-    </form>
+            <label for="id_perfil">Perfil:</label>
+            <select id="id_perfil" name="id_perfil">
+                <option value="1" <?=$usuario['id_perfil'] == 1 ? 'select':''?>>Administrador</option>
+                <option value="2" <?=$usuario['id_perfil'] == 2 ? 'select':''?>>Secretaria</option>
+                <option value="3" <?=$usuario['id_perfil'] == 3 ? 'select':''?>>Almoxarife</option>
+                <option value="4" <?=$usuario['id_perfil'] == 4 ? 'select':''?>>Cliente</option>
+            </select>
 
-    
-    
+            <!-- Se o usuario logado for Administrador, exibir opção de alterar  a senha -->
+            <?php if ($_SESSION['perfil'] == 1): ?>
+                <label for="nova_senha">Nova Senha</label>
+                <input type="password" id="nova_senha" name="nova_senha">
+            <?php endif; ?>
+        
+            <button type="submit">Alterar</button>
+            <button type="reset">Cancelar</button>
+        </form>
+    <?php endif; ?>
+    <a href="principal.php">Voltar</a>
 </body>
 </html>
