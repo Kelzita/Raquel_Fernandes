@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($usuario) {
-        //Gera uma senha temporária e aleatória
+        //Gera uma senha temporária e aleatória                     
         $senha_temporaria = gerarSenhaTemporaria();
         $senha_hash = password_hash($senha_temporaria,PASSWORD_DEFAULT);
 
@@ -51,9 +51,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <button type="submit" >Enviar a senha temporária</button>
     </form>
-    <adress>
+ <address>
+    <br><br><br><br>
         Raquel Fernandes / Estudante / raquel_f_brito@estudante.sesisenai.org.br
- </adress>
+ </address>
 </body>
 
 </html>
