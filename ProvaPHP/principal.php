@@ -39,7 +39,7 @@ $permissoes = [
 
          "Alterar"=>["alterar_perfil.php","alterar_produto.php","alterar_fornecedor.php"],
 
-         "Excluir"=>["excluir_produto.php"]],
+         "Excluir"=>["excluir_produto.php","excluir_fornecedor.php"]],
          
          4=> ["Buscar"=>["buscar_produto.php"],
 
@@ -86,8 +86,9 @@ $permissoes = [
         <?php endforeach; ?>
     </ul>  
 </nav>
-<adress>
+<address>
+    <br><br><br><br>
         Raquel Fernandes / Estudante / raquel_f_brito@estudante.sesisenai.org.br
- </adress>
+ </address>
 </body>
 </html>
