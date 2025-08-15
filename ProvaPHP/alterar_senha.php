@@ -66,12 +66,13 @@ if($_SERVER["REQUEST_METHOD"]== "POST") {
     </form>  
     <script>
         function mostrarSenha() {
-            var senha1 = document.getElementById(nova_senha);
-            var senha2 = document.getElementById(confirmar_senha);
+            var senha1 = document.getElementById("nova_senha");
+            var senha2 = document.getElementById("confirmar_senha");
             var tipo = senha1.type === "password" ? "text": "password"; 
             senha1.type=tipo;
             senha2.type=tipo;
         }
     </script>
+    
 </body>
 </html>
