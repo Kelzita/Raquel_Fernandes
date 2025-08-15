@@ -36,4 +36,5 @@ if($stmt->execute()) {
     echo "<script>alert('Erro ao atualizar usuário!'); window.location.href='alterar_usuario.php?=$id_usuario';</script>";
 
 }
+
 ?>
