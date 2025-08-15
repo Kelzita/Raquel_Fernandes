@@ -98,5 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
         </form>
     <?php endif; ?>
     <a href="principal.php">Voltar</a>
+    <address>
+    <br><br><br><br>
+        Raquel Fernandes / Estudante / raquel_f_brito@estudante.sesisenai.org.br
+ </address>
 </body>
 </html>
