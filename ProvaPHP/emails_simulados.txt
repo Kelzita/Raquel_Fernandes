@@ -54,3 +54,7 @@ Para: sergio@sergio
 Olá! Sua nova senha temporária é: VWDKcpXg
 
 ----------------------
+Para: admin@admin
+Olá! Sua nova senha temporária é: ew7ME6OG
+
+----------------------

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'menu.php';
 
 //Verifica se o usuário tem permissão de adm
 if($_SESSION['perfil'] != 1) {
@@ -47,17 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
     <link rel="stylesheet" href="styles.css">
     <!--Certifique-se de que o java script está sendo carregado corretamente-->
     <script src="scripts.js"></script>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Usuário</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
-    <!-- Certifique-se que o JavaScript está sendo carregado corretamente. -->
+   
 </head>
 <body>
     <h2>Alterar Usuário</h2>
@@ -74,10 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
             <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario'])?>">
 
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" value="<?=htmlspecialchars($usuario['nome'])?>" required>
+            <input type="text" name="nome" id="nome" placeholder="Insira um nome válido" value="<?=htmlspecialchars($usuario['nome'])?>" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<?=htmlspecialchars($usuario['email']);?>" required>
+            <input type="email" id="email" name="email" placeholder="Insira um email válido" value="<?=htmlspecialchars($usuario['email']);?>" required>
 
             <label for="id_perfil">Perfil:</label>
             <select id="id_perfil" name="id_perfil">
@@ -90,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
             <!-- Se o usuario logado for Administrador, exibir opção de alterar  a senha -->
             <?php if ($_SESSION['perfil'] == 1): ?>
                 <label for="nova_senha">Nova Senha</label>
-                <input type="password" id="nova_senha" name="nova_senha">
+                <input type="password" id="nova_senha" name="nova_senha" placeholder="Insira uma nova senha válida"> 
             <?php endif; ?>
         
             <button type="submit">Alterar</button>
@@ -102,5 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
     <br><br><br><br>
         Raquel Fernandes / Estudante / raquel_f_brito@estudante.sesisenai.org.br
  </address>
+ <script src="validacao_alterar.js"></script>
 </body>
 </html>
