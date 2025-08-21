@@ -44,10 +44,11 @@ $permissoes = [
         "Buscar" => ["buscar_cliente.php", "buscar_fornecedor.php", "buscar_produto.php"],
 
         "Alterar" => ["alterar_fornecedor.php", "alterar_produto.php"],
-        
+
         "Excluir" => ["excluir_produto.php"]
     ],
-
+ 
+    
     4 => [
         "Cadastrar" => ["cadastro_cliente.php"],
 
