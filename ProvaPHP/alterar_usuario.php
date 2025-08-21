@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
     <h2>Alterar Usuário</h2>
     <form action="alterar_usuario.php" method="POST">
         <label for="busca_usuario">Digite o ID ou o nome do usuário:</label>
-        <input type="text" id="busca_usuario" name="busca_usuario" required onkeyup="buscarSugestoes()">
+        <input type="text" id="busca_usuario" name="busca_usuario"  onkeyup="buscarSugestoes()">
 
          <div id="sugestoes"></div>
          <button type="submit">Buscar</button>
@@ -65,10 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
             <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario'])?>">
 
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" placeholder="Insira um nome válido" value="<?=htmlspecialchars($usuario['nome'])?>" required>
+            <input type="text" name="nome" id="nome" placeholder="Insira um nome válido" value="<?=htmlspecialchars($usuario['nome'])?>" >
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Insira um email válido" value="<?=htmlspecialchars($usuario['email']);?>" required>
+            <input type="email" id="email" name="email" placeholder="Insira um e-mail válido" value="<?=htmlspecialchars($usuario['email']);?>" >
 
             <label for="id_perfil">Perfil:</label>
             <select id="id_perfil" name="id_perfil">
