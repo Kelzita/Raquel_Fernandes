@@ -58,3 +58,15 @@ Para: admin@admin
 Olá! Sua nova senha temporária é: ew7ME6OG
 
 ----------------------
+Para: sergio@sergio
+Olá! Sua nova senha temporária é: 7RrPyUxT
+
+----------------------
+Para: carlos@empresa.com
+Olá! Sua nova senha temporária é: o2JR6kPx
+
+----------------------
+Para: maria@empresa.com
+Olá! Sua nova senha temporária é: YeGQDwfB
+
+----------------------
