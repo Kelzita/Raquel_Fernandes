@@ -7,7 +7,7 @@ require_once 'conexao.php';
 if(!isset($_SESSION['id_usuario'])) {
     echo "<script>alert('Acesso Negado!'); window.location.href='index.php';</script>";
     exit();
-}
+
 if($_SERVER["REQUEST_METHOD"]== "POST") {
     $id_usuario = $_SESSION['id_usuario'];
     $nova_senha = $_POST['nova_senha'];
