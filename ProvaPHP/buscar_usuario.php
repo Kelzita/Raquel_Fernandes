@@ -10,7 +10,6 @@ if($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 2) {
     exit();
 }
 $usuario = []; // Inicializa a variável para evitar erros.
-
 //Se o formulário for enviado, busca o usuário pelo ID ou Nome.
 if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['busca'])) {
     $busca = trim($_POST['busca']);
