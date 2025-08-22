@@ -3,7 +3,7 @@ session_start();
 require_once 'conexao.php';
 require_once 'menu.php';
 
-//Verifica se o usuário tem permissão de adm
+//Verifica se o usuário tem permissão de adm.
 if($_SESSION['perfil'] != 1) {
     echo "<script>alert('Acesso negado!'); window.location.href='principal.php'</script>";
     exit();
