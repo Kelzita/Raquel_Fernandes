@@ -11,7 +11,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $stmt->bindParam(':email', $email);
     $stmt->execute();
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
     if($usuario && password_verify($senha, $usuario['senha'])) {
         //Login bem-sucedido define variáveis de sessão
         $_SESSION['usuario'] = $usuario['nome'];
