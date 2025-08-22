@@ -24,7 +24,7 @@ $fornecedores = $stmt->fetchALL(PDO::FETCH_ASSOC);
 if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id_fornecedor = $_GET['id'];
 
-    // Delete o Fornecedor do Banco de dados.
+    // Delete o Fornecedor do Banco de dados
     $sql = "DELETE FROM fornecedor WHERE id_fornecedor = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id',$id_fornecedor, PDO::PARAM_INT);
