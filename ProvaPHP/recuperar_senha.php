@@ -14,6 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    
     if($usuario) {
         //Gera uma senha temporária e aleatória                     
         $senha_temporaria = gerarSenhaTemporaria();
