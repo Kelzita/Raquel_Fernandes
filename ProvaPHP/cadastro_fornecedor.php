@@ -8,7 +8,6 @@ require_once 'menu.php';
 if ($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 3) {
     echo "<script>alert('Acesso negado!'); window.location.href='principal.php';</script>";
 }
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome_fornecedor = $_POST['nome_fornecedor'];
     $endereco = $_POST['endereco'];
