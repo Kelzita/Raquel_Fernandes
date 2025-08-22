@@ -51,9 +51,7 @@ $permissoes = [
     
     4 => [
         "Cadastrar" => ["cadastro_cliente.php"],
-
-        "Buscar" => ["buscar_cliente.php"],
-
+        
         "Alterar" => ["alterar_cliente.php"]],
     
     ];
