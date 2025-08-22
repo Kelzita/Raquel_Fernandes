@@ -22,9 +22,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $stmt->bindParam(':busca', $busca, PDO::PARAM_INT);
        
         } else {
-            $sql = "SELECT * FROM fornecedor WHERE nome LIKE :busca_nome";
+            $sql = "SELECT * FROM fornecedor WHERE nome_fornecedor LIKE :busca_nome";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':busca', "%$busca", PDO::PARAM_STR);
+            $stmt->bindValue(':busca_nome', "$busca%", PDO::PARAM_STR);
         }
         $stmt->execute();
         $fornecedor = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -47,12 +47,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Alterar Fornecedor</title>
     <link rel="stylesheet" href="styles.css"/>
     <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('#telefone').mask('(00) 00000-0000');
+    });
+    </script>
 </head>
 <body>
     <h2>Alterar Fornecedor</h2>
     <form action="alterar_fornecedor.php" method="POST">
         <label for="busca_fornecedor">Digite o ID ou o Nome do Fornecedor:</label>
-        <input type="text" id="busca_fornecedor" name="busca_fornecedor" required onkeyup="buscarSugestoes()">
+        <input type="text" id="busca_fornecedor" name="busca_fornecedor" placeholder= "Insira o ID ou o nome do Fornecedor" required onkeyup="buscarSugestoes()">
 
         <div id="sugestoes"></div>
         <button type="submit">Buscar</button>
