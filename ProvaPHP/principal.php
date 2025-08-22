@@ -15,6 +15,7 @@ $stmtPerfil->execute();
 $perfil = $stmtPerfil->fetch(PDO::FETCH_ASSOC);
 $nome_perfil = $perfil['nome_perfil'];
 
+
 // Definição das permissões por perfil
 $permissoes = [
     1 => [
