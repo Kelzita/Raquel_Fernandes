@@ -49,6 +49,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     <title>Excluir Fornecedor</title>
 </head>
 <body>
+    
     <h2>Excluir Fornecedor</h2>
     <?php if(!empty($fornecedores)) : ?>
         <table  border="1">
