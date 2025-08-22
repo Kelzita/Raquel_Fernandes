@@ -10,7 +10,6 @@ function gerarSenhaTemporaria($tamanho = 8) {
     //    - Letras minúsculas (a-z)
     //    - Letras maiúsculas (A-Z)
     //    - Números (0-9)
-
     // 2. str_shuffle("...")
     //    A função str_shuffle() pega a string fornecida e embaralha seus caracteres aleatoriamente.
     //    Então, "abc" pode virar "bca", "cab", etc.
