@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
 // Função para buscar sugestões de usuários enquanto digita
 function buscarSugestoes() {
     let busca = document.getElementById("busca_usuario").value;
