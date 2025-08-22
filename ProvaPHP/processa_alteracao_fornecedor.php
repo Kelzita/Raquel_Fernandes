@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $contato = $_POST['contato'];
 }
+
 //Atualiza os dados do Fornecedor
 $sql = "UPDATE fornecedor SET nome_fornecedor = :nome_fornecedor, endereco = :endereco, telefone = :telefone, email = :email, contato = :contato WHERE id_fornecedor = :id";
 $stmt = $pdo->prepare($sql);
