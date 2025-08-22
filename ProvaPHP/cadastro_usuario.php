@@ -10,7 +10,6 @@ require_once 'menu.php';
 if ($_SESSION['perfil'] != 1) {
     echo "<script>alert('Acesso negado!'); window.location.href='index.php';</script>";
 }
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
