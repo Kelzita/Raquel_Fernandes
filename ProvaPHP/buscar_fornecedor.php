@@ -24,9 +24,9 @@ IF($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['busca'])) {
         $stmt->bindParam(':busca', $busca, PDO::PARAM_INT);
     
     }else {
-        $sql = "SELECT * FROM fornecedor WHERE nome_fornecedor LIKE :busca_nome ORDER BY nome_fornecedor ASC"; //Faz uma busca por nome
+        $sql = "SELECT *  FROM fornecedor WHERE nome_fornecedor LIKE :busca_nome ORDER BY nome_fornecedor ASC "; // Faz  por nome.
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':busca_nome', "$busca%", PDO::PARAM_STR);
+        $stmt->bindValue(':busca_nome',"%$busca%", PDO::PARAM_STR);
     }
 
 } else {
@@ -83,7 +83,7 @@ $fornecedores = $stmt->fetchALL(PDO::FETCH_ASSOC);
             <?php endforeach ?>
         <table>
         <?php else : ?>
-            <p>Nenhum usuário encontrado</p>
+            <p>Nenhum fornecedor encontrado</p>
         <?php endif; ?>
 
         <a href="principal.php">Voltar</a>
