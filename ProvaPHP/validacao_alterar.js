@@ -12,6 +12,7 @@ function validarFormularioAlteracao(event) {
     const novaSenhaValue = novaSenha ? novaSenha.value.trim() : "";
     const id_perfilValue = id_perfil.value;
 
+    
     // Validação do nome
     if(nomeValue === "") {
         alert("O campo nome não pode ser vazio!");

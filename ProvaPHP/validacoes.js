@@ -14,6 +14,7 @@ function validarFuncionario() {
         return false;
     }
 
+    
     let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regexEmail.test(email)) {
         alert("Digite um e-mail válido.");

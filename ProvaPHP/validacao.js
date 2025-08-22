@@ -13,6 +13,7 @@ function ValidacaodoFormulario(event) {
         return false;
     }
 
+    
     if (email.value.trim() === "") {
         alert("O campo email deve ser preenchido!");
         email.focus();
