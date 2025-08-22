@@ -10,7 +10,6 @@ if($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 2 && $_SESSION['perfil'] !
     exit();
 }
 $fornecedor = []; //Inicializando a variável
-
 //Se o formulário for enviado, busca o usuário por ID OU NOME
 
 IF($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['busca'])) {
